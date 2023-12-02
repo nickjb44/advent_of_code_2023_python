@@ -28,4 +28,8 @@ def main():
         read_lines(file_path)
     )
 
-    print(f"the calibration value is f{calibration_value}")
+    print(f"the calibration value is {calibration_value}")
+
+
+if __name__ == "__main__":
+    main()
