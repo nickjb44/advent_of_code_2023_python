@@ -116,5 +116,7 @@ dmypy.json
 
 # PyCharm
 .idea/
+.idea/*
 *.iml
 vcs.xml
+misc.xml
