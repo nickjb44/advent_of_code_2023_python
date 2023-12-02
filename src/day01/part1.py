@@ -23,7 +23,7 @@ def calculate_calibration_total(lines):
 
 
 def main():
-    file_path = "./input.txt"
+    file_path = "input/input.txt"
     calibration_value = calculate_calibration_total(
         read_lines(file_path)
     )
