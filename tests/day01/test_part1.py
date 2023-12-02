@@ -1,3 +1,5 @@
+import os
+
 import pytest
 from unittest.mock import mock_open, patch
 
@@ -26,7 +28,10 @@ def test_calculate_calibration_total(mock_to_calibration_info):
     assert total == 30  # 10 per line * 3 lines
 
 def test_given_example():
-    file_path = "/Users/nickbuser/Projects/Personal/advent_of_code_2023_python/tests/day01/input/example.txt"
+    # Get the directory of the current script
+    script_dir = os.path.dirname(__file__)
+    # Construct the relative path to the input file
+    file_path = os.path.join(script_dir, "input", "example.txt")
     answer = solution.calculate_calibration_total(
         solution.read_lines(file_path)
     )
