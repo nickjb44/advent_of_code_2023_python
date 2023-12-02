@@ -1,6 +1,7 @@
 from src.day01.models.CalibrationInfo import CalibrationInfo
 from src.utils.models.Line import Line
 import re
+import regex
 
 
 class CalibrationLine(Line):
@@ -23,7 +24,7 @@ class CalibrationLine(Line):
         word_regex = '|'.join(re.escape(word) for word in valid_number_words.keys())
         combined_regex = f"{digit_regex}|{word_regex}"
 
-        numbers = re.findall(combined_regex, self.content)
+        numbers = regex.findall(combined_regex, self.content, overlapped=True)
         if not numbers:
             raise ValueError("Line doesn't have any numbers, panic!")
         return numbers

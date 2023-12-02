@@ -98,10 +98,12 @@ def test_calibration_info_with_mixed_numbers_and_words():
     calib_info = line.to_calibration_info_with_number_words()
     assert calib_info.first_value == '3' and calib_info.second_value == '2'
 
+
 def test_words_overlap():
     line = CalibrationLine("7fiveonedzbmblrtqfoneightkc")
     calib_info = line.to_calibration_info_with_number_words()
     assert calib_info.first_value == '7' and calib_info.second_value == '8'
+
 
 valid_number_words = {
     "one": '1',
