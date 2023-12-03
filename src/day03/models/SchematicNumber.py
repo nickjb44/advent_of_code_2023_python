@@ -35,5 +35,25 @@ class SchematicNumber:
             return other + int(self.number)
         return int(self.number) + int(other.number)
 
+    def __eq__(self, other):
+        if not isinstance(SchematicNumber, other):
+            raise NotImplementedError("only implemented for schematic numbers")
+        return (
+            self.number == other.number and
+            self.start_coord == other.start_coord and
+            self.end_coord == other.end_coord
+        )
 
+    def __hash__(self):
+        return hash((self.number, self.start_coord, self.end_coord))
+
+    def __mul__(self, other):
+        if isinstance(other, int):
+            return int(self.number) * other
+        return int(self.number) * int(other.number)
+
+    def __rmul__(self, other):
+        if isinstance(other, int):
+            return int(self.number) * other
+        return int(self.number) * int(other.number)
 
