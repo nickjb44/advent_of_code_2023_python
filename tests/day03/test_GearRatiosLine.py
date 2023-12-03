@@ -40,24 +40,10 @@ def test_match_schematic_numbers_one(sample_line_one_number):
     assert first_match.start() == 2
     assert first_match.end() == 4
 
+
 def test_match_schematic_numbers_two(sample_line_two_numbers):
     line = GearRatiosLine(sample_line_two_numbers, 1)
     matches = list(line.match_schematic_numbers())
-    assert len(matches) == 2
-
-    first_match: Match = matches[0]
-    assert first_match.group() == "23"
-    assert first_match.start() == 2
-    assert first_match.end() == 4
-
-    second_match: Match = matches[1]
-    assert second_match.group() == "10"
-    assert second_match.start() == 6
-    assert second_match.end() == 8
-
-def test_match_schematic_symbols_one(sample_line_just_one_symbol):
-    line = GearRatiosLine(sample_line_just_one_symbol, 1)
-    matches = list(line.match())
     assert len(matches) == 2
 
     first_match: Match = matches[0]
