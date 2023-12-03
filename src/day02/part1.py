@@ -12,18 +12,6 @@ def read_lines(file_path):
     return lines
 
 
-def calculate_calibration_total(lines):
-    calibration_info_sums = map(
-        lambda line: CalibrationLine(line).to_calibration_info().calculate_calibration_value(),
-        lines
-    )
-
-    return reduce(
-        lambda x, y: x + y,
-        calibration_info_sums
-    )
-
-
 def calculate_sum_of_possible_games(lines, cube_bag):
     games = map(
         lambda line: CubeGameLine(line).to_game().set_cube_bag(cube_bag),

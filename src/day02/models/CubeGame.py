@@ -1,4 +1,5 @@
-from src.day02.models.Cube import Color
+from src.day02.models.Cube import Color, Cube
+from src.day02.models.CubeBag import CubeBag
 
 
 class CubeGame:
@@ -11,9 +12,8 @@ class CubeGame:
         max_seen = 0
 
         for round in self.rounds:
-            if color not in round.color_to_cube:
-                raise ValueError(f"color {color} not valid")
-            max_seen = max(max_seen, round.color_to_cube[color].count)
+            if color in round.color_to_cube:
+                max_seen = max(max_seen, round.color_to_cube[color].count)
 
         return max_seen
 
@@ -23,8 +23,18 @@ class CubeGame:
             for color in Color
         )
 
+    def get_fewest_cubes_to_be_valid(self):
+        min_red = self.get_max_seen_of_color(Color.RED)
+        min_green = self.get_max_seen_of_color(Color.GREEN)
+        min_blue = self.get_max_seen_of_color(Color.BLUE)
+
+        return CubeBag([
+            Cube(Color.RED, min_red),
+            Cube(Color.GREEN, min_green),
+            Cube(Color.BLUE, min_blue),
+        ])
+
     def set_cube_bag(self, cube_bag):
         # there's probably a cleaner way to do this
         self.cube_bag = cube_bag
         return self
-

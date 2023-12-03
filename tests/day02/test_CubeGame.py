@@ -43,3 +43,9 @@ def test_get_max_seen_of_color(sample_rounds):
 def test_set_cube_bag(sample_rounds, sample_cube_bag):
     game = CubeGame(sample_rounds).set_cube_bag(sample_cube_bag)
     assert game.cube_bag == sample_cube_bag
+
+def test_get_fewest_cubes_to_be_valid(sample_rounds, sample_cube_bag):
+    game = CubeGame(sample_rounds).set_cube_bag(sample_cube_bag)
+    result = game.get_fewest_cubes_to_be_valid()
+    assert result.color_to_cube[Color.RED].count == 4
+    assert result.color_to_cube[Color.GREEN].count == 5
