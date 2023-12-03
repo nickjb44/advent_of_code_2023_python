@@ -2,7 +2,7 @@ days left:
 
 Day 1 [X]
 
-Day 2 [ ]
+Day 2 [X]
 
 Day 3 [ ]
 
