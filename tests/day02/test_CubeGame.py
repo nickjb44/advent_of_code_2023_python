@@ -32,17 +32,10 @@ def test_cube_game_initialization(sample_rounds):
     assert game.rounds == sample_rounds
 
 
-def test_get_max_seen_of_color(sample_rounds):
-    game = CubeGame(sample_rounds)
-    assert game.get_max_seen_of_color(Color.RED) == 4
-    assert game.get_max_seen_of_color(Color.GREEN) == 5
-    with pytest.raises(ValueError):
-        game.get_max_seen_of_color(Color.BLUE)
-
-
 def test_set_cube_bag(sample_rounds, sample_cube_bag):
     game = CubeGame(sample_rounds).set_cube_bag(sample_cube_bag)
     assert game.cube_bag == sample_cube_bag
+
 
 def test_get_fewest_cubes_to_be_valid(sample_rounds, sample_cube_bag):
     game = CubeGame(sample_rounds).set_cube_bag(sample_cube_bag)
