@@ -4,4 +4,4 @@ class Line:
         self.sanitize_line()
 
     def sanitize_line(self):
-        self.content.rstrip
+        self.content = self.content.rstrip()
