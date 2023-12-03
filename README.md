@@ -1,6 +1,6 @@
 days left:
 
-Day 1 [X]
+Day 1 [ ]
 
 Day 2 [ ]
 
