@@ -21,15 +21,15 @@ class Card:
     def __le__(self, other):
         if not isinstance(other, Card):
             raise NotImplementedError
-        return self.rank.value < other.rank.value
+        return self.rank.value <= other.rank.value
 
     def __gt__(self, other):
         if not isinstance(other, Card):
             raise NotImplementedError
-        return self.rank.value < other.rank.value
+        return self.rank.value > other.rank.value
 
     def __ge__(self, other):
         if not isinstance(other, Card):
             raise NotImplementedError
-        return self.rank.value < other.rank.value
+        return self.rank.value <= other.rank.value
 

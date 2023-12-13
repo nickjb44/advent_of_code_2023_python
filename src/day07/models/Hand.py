@@ -24,7 +24,7 @@ class Hand:
         cards_in_hand = set(self.cards)
         rank_list = [card.rank for card in self.cards]
         rank_count = [rank_list.count(card.rank) for card in cards_in_hand]
-        rank_count.sort()
+        rank_count.sort(reverse=True)
 
         if rank_count[0] == 5:
             return HandRank.FIVE_OF_A_KIND
@@ -58,6 +58,8 @@ class Hand:
             raise NotImplementedError
         if self.hand_rank.value < other.hand_rank.value:
             return True
+        elif self.hand_rank.value > other.hand_rank.value:
+            return False
         for card_index in range(0, len(self.cards)):
             your_card: Card = self.cards[card_index]
             other_card: Card = other.cards[card_index]
@@ -73,6 +75,8 @@ class Hand:
             raise NotImplementedError
         if self.hand_rank.value < other.hand_rank.value:
             return True
+        elif self.hand_rank.value > other.hand_rank.value:
+            return False
         for card_index in range(0, len(self.cards)):
             your_card: Card = self.cards[card_index]
             other_card: Card = other.cards[card_index]
@@ -89,6 +93,8 @@ class Hand:
             raise NotImplementedError
         if self.hand_rank.value > other.hand_rank.value:
             return True
+        elif self.hand_rank.value < other.hand_rank.value:
+            return False
         for card_index in range(0, len(self.cards)):
             your_card: Card = self.cards[card_index]
             other_card: Card = other.cards[card_index]
@@ -100,11 +106,13 @@ class Hand:
         # equal in this case
         return False
 
-    def __gt__(self, other):
+    def __ge__(self, other):
         if not isinstance(other, Hand):
             raise NotImplementedError
         if self.hand_rank.value > other.hand_rank.value:
             return True
+        elif self.hand_rank.value < other.hand_rank.value:
+            return False
         for card_index in range(0, len(self.cards)):
             your_card: Card = self.cards[card_index]
             other_card: Card = other.cards[card_index]

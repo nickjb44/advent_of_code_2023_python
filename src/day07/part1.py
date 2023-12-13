@@ -15,7 +15,7 @@ def main(file_path):
         hand = hands[hand_index]
         rank = hand_index + 1
 
-        total_winnings += rank + hand.bid
+        total_winnings += rank * hand.bid
 
     return total_winnings
 
